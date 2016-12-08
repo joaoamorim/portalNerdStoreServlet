@@ -1,0 +1,26 @@
+input[type=number]{
+    width: 50px;
+} 
+
+body {
+    background-color: #fcfcfc;
+}
+
+.tableColumnTitle {
+	font-weight: bold;
+}
+
+.ui-block-d {
+	display: none;
+}
+
+.ui-panel-inner {
+    position: absolute;
+    width: 350px;
+    max-width: 350px;
+    top: 0px;
+    bottom: 0px;
+    overflow:auto;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 50px;
+}

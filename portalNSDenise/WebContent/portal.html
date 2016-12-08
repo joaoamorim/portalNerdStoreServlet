@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nerdstore</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+</head>
+<body>
+	<h1>Nerdstore - Venda de brinquedos para nerds</h1>
+	<hr>
+	<p>
+		Esta é a Nerdstore.<br>
+		Faça seu pedido:<br>
+
+<!-- 
+<xsd:element name="cep" type="xsd:string"/>
+<xsd:element name="Nome" type="xsd:string"/>
+<xsd:element name="Email" type="xsd:string"/>
+<xsd:element name="Cartao" type="xsd:string"/>
+<xsd:element name="CartaoVenc" type="xsd:string"/>
+<xsd:element name="qdtReatorArk" type="xsd:string"/>
+<xsd:element name="qdtReatorSolar" type="xsd:string"/>
+<xsd:element name="qdtRoboMedico" type="xsd:string"/>
+<xsd:element name="qdtRoboSeguranca" type="xsd:string"/>
+<xsd:element name="qdtRoboDomestico" type="xsd:string"/>
+ -->
+
+	</p>
+	<form action="processarPedido" method="post">
+		1- <img src="images/domestico.jpeg" width="50" height="50"
+			alt="domestico" /> Robo Doméstico -
+		Quantidade:<input type="text" name="qtdeRoboDomestico" value="0" size="2"><br>
+
+		<br />
+
+		<hr>
+		<br> Informe o seu nome completo e o CEP para entrega<br>
+		<table>
+			<tr>
+				<td>Nome:</td>
+				<td><input type="text" name="nome" size="50"></td>
+			</tr>
+			<tr>
+				<td>CEP:</td>
+				<td><input type="text" name="cep" size="9"></td>
+			</tr>
+		</table>
+
+		<hr>
+		<input type="submit" value="Finalizar Compra"> <input
+			type="reset" value="Cancel">
+	</form>
+
+</body>
+</html>

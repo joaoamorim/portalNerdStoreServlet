@@ -1,0 +1,187 @@
+<!DOCTYPE html >
+<html>
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet"
+			href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+			<link rel="stylesheet" href="resources/estilo.css" />
+		<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+		<script
+			src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+			
+<!-- 
+Iniciando serviço qtde estoque -->
+
+<script type="text/javascript">
+/*
+ * 
+ var soapServiceStark = 'http://192.168.1.102:8080/starkSystem/StarkSystemService';
+var soapServiceBR = 'http://localhost:8080/brrobotics/BrRoboticsService';
+
+var description = "";
+var price = "";
+var productId = "";
+var stockQTD = "";
+var aux = "";
+var picture = "";
+var smStarkProducts = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.starksystem.com/">'
+	+'<soapenv:Header/>'
+	+'  <soapenv:Body>'
+	+'     <ser:listProducts>'
+	+'        <arg0></arg0>'
+	+'     </ser:listProducts>'
+	+'  </soapenv:Body>'
+	+'</soapenv:Envelope>';
+
+var smBRProducts = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.brrobotics.com/">'
+	+'<soapenv:Header/>'
+	+'  <soapenv:Body>'
+	+'     <ser:listProducts>'
+	+'        <arg0></arg0>'
+	+'     </ser:listProducts>'
+	+'  </soapenv:Body>'
+	+'</soapenv:Envelope>';
+
+function callWS(){
+	$.ajax({
+	    url: soapServiceBR, 
+	    type: "POST",
+	    dataType: "xml", 
+	    data: smBRProducts, 
+	    contentType: "text/xml; charset=\"utf-8\"",
+	    success: wsOK, 
+	    error: wsNOK
+	});
+}
+
+function wsOK(data, status){
+	alert(data);
+
+	jQuery(data)
+	  .find('return')
+	  .each(function(){
+			alert(jQuery(this).find('description').text());
+	});
+}
+
+function wsNOK(){
+	alert("NOK");
+}
+
+jQuery(document).ready(function() {
+    callWS();
+});
+*/
+</script>			
+			
+</head>
+<body>
+<form action="processarPedido" method="post">
+	<div data-role="page" id="page-1">
+		<div data-role="header">
+			<h1><font size="5px"><b>Bem Vindo à NerdStore</b></font></h1>
+		</div>
+		<div data-role="content">
+			<p>
+				<h3 id="heading-1" class="ui-bar ui-bar-b ui-corner-all">Escolha os nossos produtos abaixo</h3>
+		 
+		<div class="ui-body ui-body-a ui-corner-all">			
+			<div data-role="collapsible" data-collapsed="false">
+				<h4>Reatores</h4>
+					<div class="ui-grid-d">
+							<div class="ui-block-a"><img hspace="85" src="images/ReatorArc.png" style="width:60px;height:60px;" /></div>
+							<div class="ui-block-b"><b>Preço:</b> <label for="text-1">Colocar Preço Aqui</label></div>
+							<div class="ui-block-c"><b>Gerador Ark:</b>
+								<input name="Reator Ark" placeholder="0" type="number" max="10" value="1"  min="0"/></div>
+							<div class="ui-block-d" style="display:none"><b>Quantidade Disponivel:</b>
+								<label><a class="ui-btn ui-corner-all">Colocar Quantidade Aqui</a></label></div>
+							<div class="ui-block-a"><img hspace="85" src="images/reatorSolar.jpeg" style="width:60px;height:60px;" /></div>
+							<div class="ui-block-b"><b>Preço:</b> <label for="text-1">Colocar Preço Aqui</label></div>
+							<div class="ui-block-c"><b>Gerador Solar:</b>
+								<input name="Reator Solar" placeholder="0" type="number" value="1"  min="0" /></div>
+							<div class="ui-block-d" style="display:none"><b>Quantidade Disponivel:</b>
+								<label><a class="ui-btn ui-corner-all">Colocar Quantidade Aqui</a></label></div>
+					</div>				
+			</div>
+			<div data-role="collapsible" data-collapsed="false">
+				<h4>Robôs</h4>
+					<div class="ui-grid-d">
+							<div class="ui-block-a"><img hspace="85" src="images/domestico.jpeg" style="width:60px;height:60px;"/></div>
+							<div class="ui-block-b"><b>Preço:</b> <label for="text-1">Colocar Preço Aqui</label></div>
+							<div class="ui-block-c"><b>Robô Doméstico:</b>
+								<input name="Robô Domestico" placeholder="0" type="number" value="1"  min="0"/></div>
+							<div class="ui-block-d" style="display:none"><b>Quantidade Disponivel:</b>
+								<label><a class="ui-btn ui-corner-all">Colocar Quantidade Aqui</a></label></div>
+							<div class="ui-block-a"><img hspace="85" src="images/seguranca.jpeg" style="width:60px;height:60px;" /></div>
+							<div class="ui-block-b"><b>Preço:</b> <label for="text-1">Colocar Preço Aqui</label></div>
+							<div class="ui-block-c"><b>Robô De Segurança:</b>
+								<input name="Robô Segurança" placeholder="0" type="number" value="1"  min="0"/></div>
+							<div class="ui-block-d" style="display:none"><b>Quantidade Disponivel:</b>
+								<label><a class="ui-btn ui-corner-all">Colocar Quantidade Aqui</a></label></div>
+							<div class="ui-block-a"><img hspace="85" src="images/medico.jpeg" style="width:60px;height:60px;" /></div>
+							<div class="ui-block-b"><b>Preço:</b> <label for="text-1">Colocar Preço Aqui</label></div>
+							<div class="ui-block-c"><b>Robô Médico:</b>
+								<input name="Robô Médico" placeholder="0" type="number" value="1"  min="0"/></div>
+							<div class="ui-block-d" style="display:none"><b>Quantidade Disponivel:</b>
+								<label><a class="ui-btn ui-corner-all">Colocar Quantidade Aqui</a></label></div>		
+					</div>	
+			</div>
+			
+		</div>
+		<div id="heading-2" class="ui-corner-all custom-corners">
+				<div class="ui-bar ui-bar-b">
+					<h3>Informações Para Compra</h3>
+				</div>
+				<div class="ui-body ui-body-a">
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<table>
+								<tr>
+									<td><b>Nome:</b></td>
+									<td><input type="text" name="Nome" placeholder="Nome" size="50" value="JOAO TESTE"></td>
+								</tr>
+								<tr>
+									<td><b>Email:</b></td>
+									<td><input type="text" name="E-mail" placeholder="email@exemplo.com" size="15" value="joao@teste.com"></td>
+								</tr>
+								<tr>
+									<td><b>CEP:</b></td>
+									<td><input type="text" name="CEP" placeholder="00000-000" size="9" value="88101090"></td>
+								</tr>
+							</table>
+					</div>
+							<div class="ui-block-b">
+								<a href="#panel-1" class="ui-btn ui-btn-inline ui-corner-all ui-shadow ui-icon-arrow-r ui-btn-icon-right">Dados Do Cartão</a>
+									<div class="ui-panel-inner" data-role="panel" id="panel-1" data-position="right" data-position-fixed="true" data-swipe-close="false" data-dismissible="false" data-display="overlay">
+											<ul data-role="listview" id="listview-1">
+												<li data-role="list-divider">Número do Cartão
+														<input name="Número do cartão"  data-clear-btn="true" data-mini="true" value="4914234567891001" maxlength="16" required="true" placeholder="0000 0000 0000 0000 - 000"type="text"/>
+												</li>
+												<li data-role="list-divider">Vencimento
+														<input name="Data de vencimento do cartão" id="datavencimento" 
+														data-clear-btn="true" data-mini="true" value="" 
+														placeholder="Mês/Ano" maxlength="7" required="true" type="month" value=""/>
+												</li>
+											</ul>
+									</div>
+							</div>
+													
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			<br><p>
+			<input class="ui-input-btn ui-btn ui-corner-all" type="submit" value="Realizar Pedido">
+			<input class="ui-input-btn ui-btn ui-corner-all" type="reset" value="Cancelar">
+			</p>
+		 
+		<div data-role="footer">
+			<h4>Volte Sempre!</h4>
+		</div>
+	</div>
+				
+</form>		
+</body>
+</html>
